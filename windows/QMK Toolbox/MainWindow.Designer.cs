@@ -89,7 +89,7 @@
             flashButton.Name = "flashButton";
             flashButton.Size = new System.Drawing.Size(72, 27);
             flashButton.TabIndex = 6;
-            flashButton.Text = "Flash";
+            flashButton.Text = "写入";
             flashButton.Click += FlashButton_Click;
             // 
             // windowStateBindingSource
@@ -108,7 +108,7 @@
             autoflashCheckbox.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             autoflashCheckbox.Size = new System.Drawing.Size(84, 19);
             autoflashCheckbox.TabIndex = 5;
-            autoflashCheckbox.Text = "Auto-Flash";
+            autoflashCheckbox.Text = "自动写入";
             autoflashCheckbox.UseVisualStyleBackColor = false;
             // 
             // openFileDialog
@@ -123,7 +123,7 @@
             openFileButton.Name = "openFileButton";
             openFileButton.Size = new System.Drawing.Size(75, 27);
             openFileButton.TabIndex = 2;
-            openFileButton.Text = "Open";
+            openFileButton.Text = "打开";
             openFileButton.UseVisualStyleBackColor = true;
             openFileButton.Click += OpenFileButton_Click;
             // 
@@ -137,7 +137,7 @@
             resetButton.Name = "resetButton";
             resetButton.Size = new System.Drawing.Size(78, 27);
             resetButton.TabIndex = 8;
-            resetButton.Text = "Exit DFU";
+            resetButton.Text = "退出DFU";
             resetButton.Click += ResetButton_Click;
             // 
             // mcuLabel
@@ -149,7 +149,7 @@
             mcuLabel.Name = "mcuLabel";
             mcuLabel.Size = new System.Drawing.Size(92, 15);
             mcuLabel.TabIndex = 3;
-            mcuLabel.Text = "MCU (AVR only)";
+            mcuLabel.Text = "MCU选择 (AVR才需要选择)";
             // 
             // fileGroupBox
             // 
@@ -165,7 +165,7 @@
             fileGroupBox.Size = new System.Drawing.Size(905, 55);
             fileGroupBox.TabIndex = 0;
             fileGroupBox.TabStop = false;
-            fileGroupBox.Text = "Local file";
+            fileGroupBox.Text = "选择固件，地址尽量不要中文";
             // 
             // filepathBox
             // 
@@ -186,7 +186,7 @@
             filepathBox.Location = new System.Drawing.Point(7, 22);
             filepathBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             filepathBox.Name = "filepathBox";
-            filepathBox.PlaceholderText = "Click Open or drag to window to select file";
+            filepathBox.PlaceholderText = "单击“打开”或拖动对应固件到窗口";
             filepathBox.Size = new System.Drawing.Size(650, 23);
             filepathBox.TabIndex = 1;
             filepathBox.KeyDown += FilepathBox_KeyDown;
@@ -214,7 +214,7 @@
             clearEepromButton.Name = "clearEepromButton";
             clearEepromButton.Size = new System.Drawing.Size(128, 27);
             clearEepromButton.TabIndex = 7;
-            clearEepromButton.Text = "Clear EEPROM";
+            clearEepromButton.Text = "清空 EEPROM";
             clearEepromButton.UseVisualStyleBackColor = true;
             clearEepromButton.Click += ClearEepromButton_Click;
             // 
@@ -252,14 +252,14 @@
             cutToolStripMenuItem.Name = "cutToolStripMenuItem";
             cutToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X;
             cutToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            cutToolStripMenuItem.Text = "Cut";
+            cutToolStripMenuItem.Text = "剪切";
             // 
             // copyToolStripMenuItem
             // 
             copyToolStripMenuItem.Name = "copyToolStripMenuItem";
             copyToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C;
             copyToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            copyToolStripMenuItem.Text = "&Copy";
+            copyToolStripMenuItem.Text = "复制";
             copyToolStripMenuItem.Click += CopyToolStripMenuItem_Click;
             // 
             // pasteToolStripMenuItem
@@ -268,7 +268,7 @@
             pasteToolStripMenuItem.Name = "pasteToolStripMenuItem";
             pasteToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V;
             pasteToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            pasteToolStripMenuItem.Text = "Paste";
+            pasteToolStripMenuItem.Text = "粘贴";
             // 
             // logContextMenuSep1
             // 
@@ -281,7 +281,7 @@
             selectAllToolStripMenuItem.Name = "selectAllToolStripMenuItem";
             selectAllToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A;
             selectAllToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            selectAllToolStripMenuItem.Text = "Select &All";
+            selectAllToolStripMenuItem.Text = "全选";
             selectAllToolStripMenuItem.Click += SelectAllToolStripMenuItem_Click;
             // 
             // logContextMenuSep2
@@ -294,7 +294,7 @@
             clearToolStripMenuItem.Enabled = false;
             clearToolStripMenuItem.Name = "clearToolStripMenuItem";
             clearToolStripMenuItem.Size = new System.Drawing.Size(139, 22);
-            clearToolStripMenuItem.Text = "Clea&r";
+            clearToolStripMenuItem.Text = "清空";
             clearToolStripMenuItem.Click += ClearToolStripMenuItem_Click;
             // 
             // mainMenu
@@ -313,14 +313,14 @@
             fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { openToolStripMenuItem, fileToolStripMenuSep, exitToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            fileToolStripMenuItem.Text = "&File";
+            fileToolStripMenuItem.Text = "文件";
             // 
             // openToolStripMenuItem
             // 
             openToolStripMenuItem.Name = "openToolStripMenuItem";
             openToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O;
             openToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            openToolStripMenuItem.Text = "&Open...";
+            openToolStripMenuItem.Text = "打开...";
             openToolStripMenuItem.Click += OpenFileButton_Click;
             // 
             // fileToolStripMenuSep
@@ -333,7 +333,7 @@
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             exitToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Alt | System.Windows.Forms.Keys.F4;
             exitToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
-            exitToolStripMenuItem.Text = "E&xit";
+            exitToolStripMenuItem.Text = "退出";
             exitToolStripMenuItem.Click += ExitMenuItem_Click;
             // 
             // toolsToolStripMenuItem
@@ -341,7 +341,7 @@
             toolsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { flashToolStripMenuItem, eepromToolStripMenuItem, exitDFUToolStripMenuItem, toolsToolStripMenuSep1, autoFlashToolStripMenuItem, showAllDevicesToolStripMenuItem, toolsToolStripMenuSep2, keyTesterToolStripMenuItem, hidConsoleToolStripMenuItem, installDriversToolStripMenuItem, toolsToolStripMenuSep3, optionsToolStripMenuItem });
             toolsToolStripMenuItem.Name = "toolsToolStripMenuItem";
             toolsToolStripMenuItem.Size = new System.Drawing.Size(46, 20);
-            toolsToolStripMenuItem.Text = "&Tools";
+            toolsToolStripMenuItem.Text = "工具";
             // 
             // flashToolStripMenuItem
             // 
@@ -349,7 +349,7 @@
             flashToolStripMenuItem.Name = "flashToolStripMenuItem";
             flashToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.F;
             flashToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            flashToolStripMenuItem.Text = "Flash";
+            flashToolStripMenuItem.Text = "写入";
             flashToolStripMenuItem.Click += FlashButton_Click;
             // 
             // eepromToolStripMenuItem
@@ -366,7 +366,7 @@
             eepromClearToolStripMenuItem.Name = "eepromClearToolStripMenuItem";
             eepromClearToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.E;
             eepromClearToolStripMenuItem.Size = new System.Drawing.Size(247, 22);
-            eepromClearToolStripMenuItem.Text = "Clear";
+            eepromClearToolStripMenuItem.Text = "清空";
             eepromClearToolStripMenuItem.Click += ClearEepromButton_Click;
             // 
             // eepromToolStripMenuSep
@@ -400,7 +400,7 @@
             exitDFUToolStripMenuItem.Name = "exitDFUToolStripMenuItem";
             exitDFUToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Shift | System.Windows.Forms.Keys.X;
             exitDFUToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            exitDFUToolStripMenuItem.Text = "Exit DFU";
+            exitDFUToolStripMenuItem.Text = "退出 DFU";
             exitDFUToolStripMenuItem.Click += ResetButton_Click;
             // 
             // toolsToolStripMenuSep1
@@ -414,7 +414,7 @@
             autoFlashToolStripMenuItem.DataBindings.Add(new System.Windows.Forms.Binding("Checked", windowStateBindingSource, "AutoFlashEnabled", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             autoFlashToolStripMenuItem.Name = "autoFlashToolStripMenuItem";
             autoFlashToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            autoFlashToolStripMenuItem.Text = "Auto-Flash";
+            autoFlashToolStripMenuItem.Text = "自动写入";
             // 
             // showAllDevicesToolStripMenuItem
             // 
@@ -422,7 +422,7 @@
             showAllDevicesToolStripMenuItem.DataBindings.Add(new System.Windows.Forms.Binding("Checked", windowStateBindingSource, "ShowAllDevices", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
             showAllDevicesToolStripMenuItem.Name = "showAllDevicesToolStripMenuItem";
             showAllDevicesToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            showAllDevicesToolStripMenuItem.Text = "Show All Devices";
+            showAllDevicesToolStripMenuItem.Text = "显示所有设备";
             // 
             // toolsToolStripMenuSep2
             // 
@@ -433,14 +433,14 @@
             // 
             keyTesterToolStripMenuItem.Name = "keyTesterToolStripMenuItem";
             keyTesterToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            keyTesterToolStripMenuItem.Text = "Key Tester";
+            keyTesterToolStripMenuItem.Text = "键盘测试";
             keyTesterToolStripMenuItem.Click += KeyTesterToolStripMenuItem_Click;
             // 
             // hidConsoleToolStripMenuItem
             // 
             hidConsoleToolStripMenuItem.Name = "hidConsoleToolStripMenuItem";
             hidConsoleToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            hidConsoleToolStripMenuItem.Text = "HID Console";
+            hidConsoleToolStripMenuItem.Text = "HID 控制器";
             hidConsoleToolStripMenuItem.Click += HidConsoleToolStripMenuItem_Click;
             // 
             // installDriversToolStripMenuItem
@@ -448,7 +448,7 @@
             installDriversToolStripMenuItem.Name = "installDriversToolStripMenuItem";
             installDriversToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N;
             installDriversToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            installDriversToolStripMenuItem.Text = "I&nstall Drivers...";
+            installDriversToolStripMenuItem.Text = "安装驱动...";
             installDriversToolStripMenuItem.Click += InstallDriversMenuItem_Click;
             // 
             // toolsToolStripMenuSep3
@@ -462,21 +462,21 @@
             optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             optionsToolStripMenuItem.ShortcutKeys = System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P;
             optionsToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            optionsToolStripMenuItem.Text = "O&ptions...";
+            optionsToolStripMenuItem.Text = "首选项...";
             // 
             // helpToolStripMenuItem
             // 
             helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { checkForUpdatesToolStripMenuItem, helpToolStripMenuSep, aboutToolStripMenuItem });
             helpToolStripMenuItem.Name = "helpToolStripMenuItem";
             helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            helpToolStripMenuItem.Text = "&Help";
+            helpToolStripMenuItem.Text = "关于";
             // 
             // checkForUpdatesToolStripMenuItem
             // 
             checkForUpdatesToolStripMenuItem.Enabled = false;
             checkForUpdatesToolStripMenuItem.Name = "checkForUpdatesToolStripMenuItem";
             checkForUpdatesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            checkForUpdatesToolStripMenuItem.Text = "Check for Updates...";
+            checkForUpdatesToolStripMenuItem.Text = "检查更新...";
             // 
             // helpToolStripMenuSep
             // 
@@ -487,7 +487,7 @@
             // 
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
             aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            aboutToolStripMenuItem.Text = "&About";
+            aboutToolStripMenuItem.Text = "关于";
             aboutToolStripMenuItem.Click += AboutMenuItem_Click;
             // 
             // MainWindow
@@ -508,7 +508,7 @@
             Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             MinimumSize = new System.Drawing.Size(949, 805);
             Name = "MainWindow";
-            Text = "QMK Toolbox";
+            Text = "JLKB-工具箱";
             FormClosing += MainWindow_FormClosing;
             FormClosed += MainWindow_FormClosed;
             Load += MainWindow_Load;

@@ -39,7 +39,7 @@ namespace QMK_Toolbox
                 }
                 else
                 {
-                    MessageBox.Show("QMK Toolbox doesn't support this kind of file", "File Type Error", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("不支持此的文件类型", "文件类型错误", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
             }
         }
@@ -60,22 +60,20 @@ namespace QMK_Toolbox
 
             EmbeddedResourceHelper.ExtractResources(EmbeddedResourceHelper.Resources);
 
-            logTextBox.LogInfo($"QMK Toolbox {Application.ProductVersion} (https://qmk.fm/toolbox)");
-            logTextBox.LogInfo("Supported bootloaders:");
-            logTextBox.LogInfo(" - ARM DFU (APM32, Kiibohd, STM32, STM32duino) and RISC-V DFU (GD32V) via dfu-util (http://dfu-util.sourceforge.net/)");
-            logTextBox.LogInfo(" - Atmel/LUFA/QMK DFU via dfu-programmer (http://dfu-programmer.github.io/)");
-            logTextBox.LogInfo(" - Atmel SAM-BA (Massdrop) via Massdrop Loader (https://github.com/massdrop/mdloader)");
-            logTextBox.LogInfo(" - BootloadHID (Atmel, PS2AVRGB) via bootloadHID (https://www.obdev.at/products/vusb/bootloadhid.html)");
-            logTextBox.LogInfo(" - Caterina (Arduino, Pro Micro) via avrdude (http://nongnu.org/avrdude/)");
-            logTextBox.LogInfo(" - HalfKay (Teensy, Ergodox EZ) via Teensy Loader (https://pjrc.com/teensy/loader_cli.html)");
-            logTextBox.LogInfo(" - LUFA/QMK HID via hid_bootloader_cli (https://github.com/abcminiuser/lufa)");
-            logTextBox.LogInfo(" - WB32 DFU via wb32-dfu-updater_cli (https://github.com/WestberryTech/wb32-dfu-updater)");
-            logTextBox.LogInfo(" - LUFA Mass Storage");
-            logTextBox.LogInfo("Supported ISP flashers:");
-            logTextBox.LogInfo(" - AVRISP (Arduino ISP)");
-            logTextBox.LogInfo(" - USBasp (AVR ISP)");
-            logTextBox.LogInfo(" - USBTiny (AVR Pocket)");
-
+            logTextBox.LogRed($" - JLKB-工具箱 {Application.ProductVersion} (http://jlkb.jlkb.top)");
+            logTextBox.LogRed($"*** 注意：刷入固件会清空键盘配置，请提前备份存档");
+            logTextBox.LogError("*** 键盘刷入更新固件工具:");
+            logTextBox.LogHid("*** 没事不要瞎刷，刷错固件可能会导致键盘变砖。");
+            logTextBox.LogCommand("  一、固件写入教程");
+            logTextBox.LogError("*** 1、（首次使用需先安装驱动，右键选择管理员运行）工具→安装驱动，安装完成后重启软件。");
+            logTextBox.LogError("*** 2、键盘设置复位键（vial-JL里面设置，可到http://jlkb.jlkb.top下载）或按背面复位按钮进入DFU模式");
+            logTextBox.LogError("*** 3、地址栏选择对应的固件（文件类型不要错了）");
+            logTextBox.LogError("*** 4、键盘进入DFU模式后，如果勾选了自动写入，会自动进行写入操作，如果没有勾选，则需要手动点写入");
+            logTextBox.LogError("*** 5、重新插拔或按背面复位键重启键盘");
+            logTextBox.LogError("*** 6、更新完成开始使用新固件吧…………");
+            logTextBox.LogBootloader("*** ***注意：刷入固件会清空键盘配置，请提前备份存档***");
+            logTextBox.LogError("*** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** *** ");
+            
             usbListener.usbDeviceConnected += UsbDeviceConnected;
             usbListener.usbDeviceDisconnected += UsbDeviceDisconnected;
             usbListener.bootloaderDeviceConnected += BootloaderDeviceConnected;
@@ -177,7 +175,7 @@ namespace QMK_Toolbox
         {
             Invoke(new Action(() =>
             {
-                logTextBox.LogBootloader($"{device.Name} device connected ({device.Driver}): {device}");
+                logTextBox.LogBootloader($"{device.Name} 键盘已连接 ({device.Driver}): {device}");
 
                 if (windowState.AutoFlashEnabled)
                 {
@@ -194,7 +192,7 @@ namespace QMK_Toolbox
         {
             Invoke(new Action(() =>
             {
-                logTextBox.LogBootloader($"{device.Name} device disconnected ({device.Driver}): {device}");
+                logTextBox.LogBootloader($"{device.Name} 键盘断开连接 ({device.Driver}): {device}");
 
                 if (!windowState.AutoFlashEnabled)
                 {
@@ -217,7 +215,7 @@ namespace QMK_Toolbox
             {
                 if (windowState.ShowAllDevices)
                 {
-                    logTextBox.LogUsb($"USB device connected ({device.Driver}): {device}");
+                    logTextBox.LogUsb($"USB 键盘已连接 ({device.Driver}): {device}");
                 }
             }));
         }
@@ -228,7 +226,7 @@ namespace QMK_Toolbox
             {
                 if (windowState.ShowAllDevices)
                 {
-                    logTextBox.LogUsb($"USB device disconnected ({device.Driver}): {device}");
+                    logTextBox.LogUsb($"键盘已断开连接 ({device.Driver}): {device}");
                 }
             }));
         }
@@ -241,12 +239,12 @@ namespace QMK_Toolbox
             {
                 if (windowState.AutoFlashEnabled)
                 {
-                    logTextBox.LogInfo("Auto-flash enabled");
+                    logTextBox.LogInfo("自动写入开启");
                     DisableUI();
                 }
                 else
                 {
-                    logTextBox.LogInfo("Auto-flash disabled");
+                    logTextBox.LogInfo("自动写入关闭");
                     EnableUI();
                 }
             }
@@ -267,13 +265,13 @@ namespace QMK_Toolbox
 
             if (filePath.Length == 0)
             {
-                logTextBox.LogError("Please select a file");
+                logTextBox.LogError("请选择对应固件");
                 return;
             }
 
             if (!File.Exists(filePath))
             {
-                logTextBox.LogError("File does not exist!");
+                logTextBox.LogError("固件不存在!");
                 return;
             }
 
@@ -284,9 +282,10 @@ namespace QMK_Toolbox
 
             foreach (BootloaderDevice b in FindBootloaders())
             {
-                logTextBox.LogBootloader("Attempting to flash, please don't remove device");
+                logTextBox.LogBootloader("正在尝试刷新，请不要删除设备");
                 await b.Flash(selectedMcu, filePath);
-                logTextBox.LogBootloader("Flash complete");
+                logTextBox.LogBootloader("写入完成，重新插拔或按背面复位按钮重启键盘");
+                
             }
 
             if (!windowState.AutoFlashEnabled)
@@ -331,9 +330,9 @@ namespace QMK_Toolbox
             {
                 if (b.IsEepromFlashable)
                 {
-                    logTextBox.LogBootloader("Attempting to clear EEPROM, please don't remove device");
+                    logTextBox.LogBootloader("正在尝试清除空键盘EEPROM，请不要移除设备");
                     await b.FlashEeprom(selectedMcu, "reset.eep");
-                    logTextBox.LogBootloader("EEPROM clear complete");
+                    logTextBox.LogBootloader("EEPROM 清空完成");
                 }
             }
 
@@ -357,9 +356,9 @@ namespace QMK_Toolbox
             {
                 if (b.IsEepromFlashable)
                 {
-                    logTextBox.LogBootloader("Attempting to set handedness, please don't remove device");
+                    logTextBox.LogBootloader("正在尝试设置惯用手，请不要移除设备");
                     await b.FlashEeprom(selectedMcu, file);
-                    logTextBox.LogBootloader("EEPROM write complete");
+                    logTextBox.LogBootloader("EEPROM 写入完成");
                 }
             }
 
@@ -438,7 +437,7 @@ namespace QMK_Toolbox
 
         private async void DownloadFile(string url)
         {
-            logTextBox.LogInfo($"Downloading the file: {url}");
+            logTextBox.LogInfo($"下载文件: {url}");
 
             try
             {
@@ -451,14 +450,14 @@ namespace QMK_Toolbox
                 using (var fs = new FileStream(destFile, FileMode.CreateNew))
                 {
                     await response.Content.CopyToAsync(fs);
-                    logTextBox.LogInfo($"File saved to: {destFile}");
+                    logTextBox.LogInfo($"文件保存至: {destFile}");
                 }
 
                 LoadLocalFile(destFile);
             }
             catch (Exception e)
             {
-                logTextBox.LogError($"Could not download file: {e.Message}");
+                logTextBox.LogError($"无法下载文件: {e.Message}");
             }
         }
 

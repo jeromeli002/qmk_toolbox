@@ -38,7 +38,7 @@
             this.toolboxLabel.Name = "toolboxLabel";
             this.toolboxLabel.Size = new System.Drawing.Size(232, 13);
             this.toolboxLabel.TabIndex = 0;
-            this.toolboxLabel.Text = "QMK Toolbox";
+            this.toolboxLabel.Text = "JLKB-工具箱";
             this.toolboxLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // githubLink
@@ -52,7 +52,7 @@
             this.githubLink.Size = new System.Drawing.Size(232, 13);
             this.githubLink.TabIndex = 1;
             this.githubLink.TabStop = true;
-            this.githubLink.Text = "https://github.com/qmk/qmk_toolbox";
+            this.githubLink.Text = "http://jlkb.jlkb.top";
             this.githubLink.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.githubLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.GithubLink_LinkClicked);
             // 
@@ -96,7 +96,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "About QMK Toolbox";
+            this.Text = "关于JLKB-工具箱";
             ((System.ComponentModel.ISupportInitialize)(this.qmkLogo)).EndInit();
             this.ResumeLayout(false);
 

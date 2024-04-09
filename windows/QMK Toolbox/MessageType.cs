@@ -10,6 +10,7 @@
         Hid,
         HidOutput,
         Info,
-        Usb
+        Usb,
+        Red
     }
 }

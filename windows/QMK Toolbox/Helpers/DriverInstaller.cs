@@ -13,7 +13,7 @@ namespace QMK_Toolbox.Helpers
 
         public static bool DisplayPrompt()
         {
-            var driverPromptResult = MessageBox.Show("Would you like to install drivers for your devices?", "Driver installation", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var driverPromptResult = MessageBox.Show("确定要安装驱动吗?", "驱动安装", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (driverPromptResult == DialogResult.No || !InstallDrivers())
             {
                 return false;
@@ -54,7 +54,7 @@ namespace QMK_Toolbox.Helpers
             }
             catch (Win32Exception)
             {
-                var tryAgainResult = MessageBox.Show("This action requires administrator rights. Do you want to try again?", "Error", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
+                var tryAgainResult = MessageBox.Show("此操作需要管理员权限，请用管理员权限重新打开操作！！", "错误", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error);
                 if (tryAgainResult == DialogResult.Retry)
                 {
                     return InstallDrivers();

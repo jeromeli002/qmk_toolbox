@@ -6,6 +6,11 @@ namespace QMK_Toolbox
 {
     class LogTextBox : RichTextBox
     {
+        public void LogRed(string message)
+        {
+            Log(message, MessageType.Red);
+        }
+
         public void LogBootloader(string message)
         {
             Log(message, MessageType.Bootloader);
@@ -63,7 +68,10 @@ namespace QMK_Toolbox
             {
                 switch (type)
                 {
-                    case MessageType.Bootloader:
+                    case MessageType.Red:
+                        AppendText($"{line}\n", Color.Red);
+                        break;
+                        case MessageType.Bootloader:
                         AppendText($"{line}\n", Color.Yellow);
                         break;
                     case MessageType.Command:
